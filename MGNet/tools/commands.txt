@@ -1,0 +1,2 @@
+main.py --model-name=MGNet --config=configs/MGnet/MGnet.py --datasets-info ./configs/_base_/dataset/dataset_configs.json
+
