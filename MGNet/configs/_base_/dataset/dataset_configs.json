@@ -15,7 +15,7 @@
     }
   },
   "Glass_te": {
-    "root": "/root/autodl-tmp/完整/paper",
+    "root": "/root/autodl-tmp/complete/paper",
     "image": {
       "path": "Imgs",
       "suffix": ".jpg"
