@@ -120,15 +120,15 @@ class FRM(nn.Module):
 
 
     def forward(self, l, m, s, return_feats=False):
-        """l,m,s表示大中小三个尺度，最终会被整合到m这个尺度上"""
+       
         tgt_size = m.shape[2:]
-        # 尺度缩小
+        
         l = self.conv_l_pre_down(l)
         l = F.adaptive_max_pool2d(l, tgt_size) + F.adaptive_avg_pool2d(l, tgt_size)
         l = self.conv_l_post_down(l)
-        # 尺度不变
+      
         m = self.conv_m(m)
-        # 尺度增加(这里使用上采样之后卷积的策略)
+      
         s = self.conv_s_pre_up(s)
         s = cus_sample(s, mode="size", factors=m.shape[2:])
         s = self.conv_s_post_up(s)
